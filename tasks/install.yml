@@ -2,7 +2,7 @@
 ---
 - name: install | add repository from PPA and install its signing key
   apt_repository:
-    repo: "{{ haproxy_repository }}"
+    repo: "{{ haproxy_repository_hash[ansible_distribution][ansible_distribution_release] | default(haproxy_repository_hash[ansible_distribution]['default']) }}"
     update_cache: true
   tags:
     - haproxy-install-add-repository

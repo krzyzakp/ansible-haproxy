@@ -2,7 +2,13 @@
 ---
 haproxy_version: 1.6
 
-haproxy_repository_debian_component: "{{ansible_distribution_release }}-backports"
+haproxy_repository_hash:
+  Debian:
+    jessie: "deb http://httpredir.debian.org/debian jessie-backports main"
+    stretch: "deb http://httpredir.debian.org/debian stretch-backports main"
+    default: ''
+  Ubuntu:
+    default: "ppa:vbernat/haproxy-{{ haproxy_version }}"
 
 haproxy_dependencies:
   - name: haproxy

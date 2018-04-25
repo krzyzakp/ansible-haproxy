@@ -9,11 +9,6 @@
     - haproxy
     - haproxy-check-version-support
 
-- name: Gather OS specific variables
-  include_vars: "{{ item }}"
-  with_first_found:
-    - "{{ ansible_distribution | lower }}"
-
 - include: install.yml
   tags:
     - configuration
