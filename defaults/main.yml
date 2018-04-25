@@ -2,6 +2,8 @@
 ---
 haproxy_version: 1.6
 
+haproxy_repository_debian_component: "{{ansible_distribution_release }}-backports"
+
 haproxy_dependencies:
   - name: haproxy
     state: latest

@@ -1,0 +1,4 @@
+---
+# Ubuntu variables
+
+haproxy_repository: "deb http://haproxy.debian.net {{ haproxy_repository_debian_component }}-{{ haproxy_version }} main"
