@@ -12,7 +12,7 @@
 - name: Gather OS specific variables
   include_vars: "{{ item }}"
   with_first_found:
-    - "{{ ansible_distribution }}"
+    - "{{ ansible_distribution | lower }}"
 
 - include: install.yml
   tags:
