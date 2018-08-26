@@ -36,6 +36,10 @@
 {% endfor %}
 {% endif %}
 
+{% if haproxy_defaults_retries is defined %}
+  retries {{ haproxy_defaults_retries }}
+{% endif %}
+
 {% for compression in haproxy_defaults_compression | default([]) %}
   compression {{ compression.name }} {{ compression.value }}
 {% endfor %}
