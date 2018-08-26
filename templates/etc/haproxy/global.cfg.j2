@@ -88,10 +88,6 @@
   tune.{{ tune.key }} {{ tune.value }}
 {% endfor %}
 
-{% if haproxy_global_retries is defined %}
-  retries {{ haproxy_global_retries }}
-{% endif %}
-
 {% for option in haproxy_global_option | default([]) %}
   {{ option }}
 {% endfor %}
