@@ -16,6 +16,10 @@ backend {{ backend.name }}
   source {{ backend.source }}
 {% endif %}
 
+{% if backend.retries is defined %}
+  retries {{ backend.retries }}
+{% endif %}
+
 {% for option in backend.option | default([])%}
   option {{ option }}
 {% endfor %}

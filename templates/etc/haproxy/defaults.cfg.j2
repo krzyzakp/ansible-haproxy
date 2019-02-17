@@ -14,6 +14,10 @@
   source {{ haproxy_defaults_source }}
 {% endif %}
 
+{% if haproxy_defaults_retries is defined %}
+  retries {{ haproxy_defaults_retries }}
+{% endif %}
+
 {% if haproxy_defaults_option != false %}
 {% for option in haproxy_defaults_option %}
   option {{ option }}

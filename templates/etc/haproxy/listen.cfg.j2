@@ -36,6 +36,10 @@ listen {{ listen.name }}
   source {{ listen.source }}
 {% endif %}
 
+{% if listen.retries is defined %}
+  retries {{ listen.retries }}
+{% endif %}
+
 {% for option in listen.option | default([]) %}
   option {{ option }}
 {% endfor %}
