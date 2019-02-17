@@ -11,3 +11,10 @@
   notify: restart haproxy
   tags:
     - haproxy-configuration-update-file
+
+- name: Remove blank lines in order to have a readable config file
+  replace:
+    path: /etc/haproxy/haproxy.cfg
+    after: 'global'
+    regexp: '(^\s*$)'
+    replace: ''
