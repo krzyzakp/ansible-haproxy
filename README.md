@@ -57,6 +57,7 @@ Set up (the latest version of) [HAProxy](http://www.haproxy.org/) in Ubuntu syst
 * `haproxy_defaults_logformat`: [optional]: Allows you to customize the logs in http mode and tcp mode (e.g. `%{+Q}o\ %t\ %s\ %{-Q}r`)
 * `haproxy_defaults_mode`: [default: `http`]: Set the running mode or protocol of the instance
 * `haproxy_defaults_source`: [optional]: Set the source address or interface for connections from the proxy
+* `haproxy_defaults_retries`: [optional]: Set the number of retries to perform on a server after a connection failure
 * `haproxy_defaults_option`: [default: `[httplog, dontlognull]`]: Options (default)
 * `haproxy_defaults_no_option`: [optional]: Options to unset (e.g. `[redispatch]`)
 * `haproxy_defaults_timeout`: [default: See `defaults/main.yml`]: Timeout declarations
@@ -87,6 +88,7 @@ Set up (the latest version of) [HAProxy](http://www.haproxy.org/) in Ubuntu syst
 * `haproxy_listen.{n}.balance`: [required]: The load balancing algorithm to be used (e.g. `roundrobin`)
 * `haproxy_listen.{n}.maxconn`: [optional]: Fix the maximum number of concurrent connections
 * `haproxy_listen.{n}.source`: [optional]: Set the source address or interface for connections from the proxy
+* `haproxy_listen.{n}.retries`: [optional]: Set the number of retries to perform on a server after a connection failure
 * `haproxy_listen.{n}.option`: [optional]: Options to set (e.g. `[dontlog-normal]`)
 * `haproxy_listen.{n}.no_option`: [optional]: Options to set (e.g. `[dontlog-normal]`)
 * `haproxy_listen.{n}.no_log`: [optional, default `false`]: Used when the logger list must be flushed. For example, if you don't want to inherit from the default logger list
@@ -199,6 +201,7 @@ Set up (the latest version of) [HAProxy](http://www.haproxy.org/) in Ubuntu syst
 * `haproxy_backend.{n}.mode`: [required]: Set the running mode or protocol of the section (e.g. `http`)
 * `haproxy_backend.{n}.balance`: [required]: The load balancing algorithm to be used (e.g. `roundrobin`)
 * `haproxy_backend.{n}.source`: [optional]: Set the source address or interface for connections from the proxy
+* `haproxy_backend.{n}.retries`: [optional]: Set the number of retries to perform on a server after a connection failure
 * `haproxy_backend.{n}.option`: [optional]: Options to set (e.g. `[forwardfor]`)
 * `haproxy_backend.{n}.no_option`: [optional]: Options to unset (e.g. `[redispatch]`)
 * `haproxy_backend.{n}.http_check`: [optional]: Make HTTP health checks consider response contents or specific status codes (e.g. `expect status 403`)
