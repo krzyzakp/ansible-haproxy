@@ -24,6 +24,10 @@ backend {{ backend.name }}
   no option {{ option }}
 {% endfor %}
 
+{% if backend.reqrep is defined %}
+  reqrep {{ backend.reqrep }}
+{% endif %}
+
 {% if backend.http_check is defined %}
   http-check {{ backend.http_check }}
 {% endif %}
